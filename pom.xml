@@ -27,15 +27,15 @@
       <name>pallet-clj</name>
       <subscribe>http://groups.google.com/group/pallet-clj</subscribe>
       <unsubscribe>http://groups.google.com/group/pallet-clj</unsubscribe>
-      <post>palle-clj@googlegroups.com</post>
+      <post>pallet-clj@googlegroups.com</post>
       <archive>http://groups.google.com/group/pallet-clj</archive>
     </mailingList>
   </mailingLists>
 
   <scm>
-    <connection>scm:git:git://github.com/hugoduncan/pallet-pom.git</connection>
-    <developerConnection>scm:git:ssh://git@github.com/hugoduncan/pallet-pom.git</developerConnection>
-    <url>http://github.com/hugoduncan/pallet-pom</url>
+    <connection>scm:git:git://github.com/pallet/pallet-pom.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com/pallet/pallet-pom.git</developerConnection>
+    <url>https://github.com/pallet/pallet-pom</url>
   </scm>
 
   <distributionManagement>
@@ -83,6 +83,9 @@
           <testDeclaredNamespaceOnly>false</testDeclaredNamespaceOnly>
           <autodoc>
             <copyright>Copyright (c) 2010 Hugo Duncan</copyright>
+            <webSrcDir>https://github.com/pallet/pallet/blob/</webSrcDir>
+            <webHome>https://pallet.github.com/pallet/autodoc</webHome>
+            <outputPath>autodoc/autodoc</outputPath>
           </autodoc>
         </configuration>
         <executions>
