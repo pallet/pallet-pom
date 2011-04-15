@@ -8,7 +8,7 @@
   </parent>
   <groupId>org.cloudhoist</groupId>
   <artifactId>pallet-pom</artifactId>
-  <version>0.4.2-SNAPSHOT</version>
+  <version>0.4.3-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>pallet-pom</name>
   <description>Pallet - parent pom</description>
@@ -64,6 +64,9 @@
       <testResource>
         <directory>test</directory>
       </testResource>
+      <testResource>
+        <directory>test-resources</directory>
+      </testResource>
     </testResources>
     <plugins>
       <plugin>
@@ -102,6 +105,13 @@
           </execution>
         </executions>
       </plugin>
+      <plugin>
+        <artifactId>maven-release-plugin</artifactId>
+        <version>2.0</version>
+        <configuration>
+          <pushChanges>false</pushChanges>
+        </configuration>
+      </plugin>
     </plugins>
     <pluginManagement>
       <plugins>
@@ -116,7 +126,7 @@
             <testSourceDirectories>
               <testSourceDirectory>test</testSourceDirectory>
             </testSourceDirectories>
-            <clojureOptions>-Xmx512m -Djava.awt.headless=true -XX:MaxPermSize=256m</clojureOptions>
+            <clojureOptions>-Xmx1024m -Djava.awt.headless=true -XX:MaxPermSize=256m</clojureOptions>
             <warnOnReflection>false</warnOnReflection>
             <temporaryOutputDirectory>true</temporaryOutputDirectory>
             <testDeclaredNamespaceOnly>false</testDeclaredNamespaceOnly>
@@ -130,10 +140,21 @@
         <plugin>
           <artifactId>maven-jar-plugin</artifactId>
           <version>2.3.1</version>
+        </plugin>
+        <plugin>
+	  <!-- disable the Surefire testing plugin -->
+	  <artifactId>maven-surefire-plugin</artifactId>
+	  <version>2.6</version>
+	  <configuration>
+	    <skip>true</skip>
+	  </configuration>
+        </plugin>
+        <!-- disable pushing of changes on release -->
+        <plugin>
+          <artifactId>maven-release-plugin</artifactId>
+          <version>2.0</version>
           <configuration>
-            <excludes>
-              <exclude>log4j.xml</exclude>
-            </excludes>
+            <pushChanges>false</pushChanges>
           </configuration>
         </plugin>
       </plugins>
