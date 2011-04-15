@@ -64,6 +64,9 @@
       <testResource>
         <directory>test</directory>
       </testResource>
+      <testResource>
+        <directory>test-resources</directory>
+      </testResource>
     </testResources>
     <plugins>
       <plugin>
@@ -116,7 +119,7 @@
             <testSourceDirectories>
               <testSourceDirectory>test</testSourceDirectory>
             </testSourceDirectories>
-            <clojureOptions>-Xmx512m -Djava.awt.headless=true -XX:MaxPermSize=256m</clojureOptions>
+            <clojureOptions>-Xmx1024m -Djava.awt.headless=true -XX:MaxPermSize=256m</clojureOptions>
             <warnOnReflection>false</warnOnReflection>
             <temporaryOutputDirectory>true</temporaryOutputDirectory>
             <testDeclaredNamespaceOnly>false</testDeclaredNamespaceOnly>
@@ -130,11 +133,14 @@
         <plugin>
           <artifactId>maven-jar-plugin</artifactId>
           <version>2.3.1</version>
-          <configuration>
-            <excludes>
-              <exclude>log4j.xml</exclude>
-            </excludes>
-          </configuration>
+        </plugin>
+        <plugin>
+	  <!-- disable the Surefire testing plugin -->
+	  <artifactId>maven-surefire-plugin</artifactId>
+	  <version>2.6</version>
+	  <configuration>
+	    <skip>true</skip>
+	  </configuration>
         </plugin>
       </plugins>
     </pluginManagement>
