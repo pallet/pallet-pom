@@ -171,7 +171,7 @@
       <dependency>
         <groupId>org.clojure</groupId>
         <artifactId>clojure-contrib</artifactId>
-        <version>${clojure.version}</version>
+        <version>${clojure.contrib.version}</version>
       </dependency>
       <dependency>
         <groupId>swank-clojure</groupId>
@@ -310,6 +310,7 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <clojure.version>1.2.0</clojure.version>
+    <clojure.version>1.2.1</clojure.version>
+    <clojure.contrib.version>1.2.0</clojure.contrib.version>
   </properties>
 </project>
