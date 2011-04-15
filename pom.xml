@@ -105,6 +105,13 @@
           </execution>
         </executions>
       </plugin>
+      <plugin>
+        <artifactId>maven-release-plugin</artifactId>
+        <version>2.0</version>
+        <configuration>
+          <pushChanges>false</pushChanges>
+        </configuration>
+      </plugin>
     </plugins>
     <pluginManagement>
       <plugins>
@@ -141,6 +148,14 @@
 	  <configuration>
 	    <skip>true</skip>
 	  </configuration>
+        </plugin>
+        <!-- disable pushing of changes on release -->
+        <plugin>
+          <artifactId>maven-release-plugin</artifactId>
+          <version>2.0</version>
+          <configuration>
+            <pushChanges>false</pushChanges>
+          </configuration>
         </plugin>
       </plugins>
     </pluginManagement>
