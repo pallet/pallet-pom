@@ -110,6 +110,7 @@
         <version>2.0</version>
         <configuration>
           <pushChanges>false</pushChanges>
+          <localCheckout>true</localCheckout>
         </configuration>
       </plugin>
       <plugin>
@@ -162,6 +163,7 @@
           <version>2.0</version>
           <configuration>
             <pushChanges>false</pushChanges>
+            <localCheckout>true</localCheckout>
           </configuration>
         </plugin>
         <!-- enable snapshots from source to mix with remote snapshots -->
