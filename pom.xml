@@ -8,7 +8,7 @@
   </parent>
   <groupId>org.cloudhoist</groupId>
   <artifactId>pallet-pom</artifactId>
-  <version>0.4.4-SNAPSHOT</version>
+  <version>0.4.5-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>pallet-pom</name>
   <description>Pallet - parent pom</description>
@@ -107,7 +107,7 @@
       </plugin>
       <plugin>
         <artifactId>maven-release-plugin</artifactId>
-        <version>2.0</version>
+        <version>2.2</version>
         <configuration>
           <pushChanges>false</pushChanges>
           <localCheckout>true</localCheckout>
@@ -160,7 +160,7 @@
         <!-- disable pushing of changes on release -->
         <plugin>
           <artifactId>maven-release-plugin</artifactId>
-          <version>2.0</version>
+          <version>2.2</version>
           <configuration>
             <pushChanges>false</pushChanges>
             <localCheckout>true</localCheckout>
