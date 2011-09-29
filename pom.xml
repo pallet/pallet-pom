@@ -111,7 +111,7 @@
         <plugin>
           <groupId>org.cloudhoist.plugin</groupId>
           <artifactId>zi</artifactId>
-          <version>0.3.7</version>
+          <version>${zi.version}</version>
           <executions>
             <execution>
               <id>default-resources</id>
@@ -153,6 +153,11 @@
               <groupId>org.clojure</groupId>
               <artifactId>clojure</artifactId>
               <version>${clojure.version}</version>
+            </dependency>
+            <dependency>
+              <groupId>ritz</groupId>
+              <artifactId>ritz</artifactId>
+              <version>${ritz.version}</version>
             </dependency>
           </dependencies>
         </plugin>
@@ -359,5 +364,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <clojure.version>1.2.1</clojure.version>
+    <ritz.version>0.1.7</ritz.version>
+    <zi.version>0.3.7</zi.version>
   </properties>
 </project>
