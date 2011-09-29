@@ -139,7 +139,6 @@
               <phase>site</phase>
               <goals>
                 <goal>marginalia</goal>
-                <goal>autodoc</goal>
               </goals>
               <configuration>
                 <copyright>Copyright (c) 2010 Hugo Duncan</copyright>
