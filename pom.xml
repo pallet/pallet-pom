@@ -203,7 +203,12 @@
       <dependency>
         <groupId>org.clojure</groupId>
         <artifactId>tools.logging</artifactId>
-        <version>0.2.2</version>
+        <version>0.2.0</version>
+      </dependency>
+      <dependency>
+        <groupId>slingshot</groupId>
+        <artifactId>slingshot</artifactId>
+        <version>0.2.1</version>
       </dependency>
       <dependency>
         <groupId>log4j</groupId>
@@ -239,7 +244,7 @@
       <dependency>
         <groupId>marginalia</groupId>
         <artifactId>marginalia</artifactId>
-        <version>0.6.0</version>
+        <version>0.6.1</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
