@@ -368,7 +368,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <clojure.version>1.2.1</clojure.version>
-    <ritz.version>0.1.7</ritz.version>
-    <zi.version>0.3.10</zi.version>
+    <ritz.version>0.2.0</ritz.version>
+    <zi.version>0.4.1</zi.version>
   </properties>
 </project>
