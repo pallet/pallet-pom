@@ -70,6 +70,23 @@
     </testResources>
     <plugins>
       <plugin>
+        <groupId>org.cloudhoist.plugin</groupId>
+        <artifactId>zi</artifactId>
+        <version>${zi.version}</version>
+        <dependencies>
+          <dependency>
+            <groupId>org.clojure</groupId>
+            <artifactId>clojure</artifactId>
+            <version>${clojure.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>ritz</groupId>
+            <artifactId>ritz</artifactId>
+            <version>${ritz.version}</version>
+          </dependency>
+        </dependencies>
+      </plugin>
+      <plugin>
         <artifactId>maven-enforcer-plugin</artifactId>
         <executions>
           <execution>
@@ -321,17 +338,6 @@
       </roles>
       <timezone>-5</timezone>
     </developer>
-    <developer>
-      <name>Adrian Cole</name>
-      <id>ferncam1</id>
-      <email>adrian -at- jclouds -dot- org</email>
-      <organization>jclouds</organization>
-      <roles>
-        <role>Developer</role>
-      </roles>
-      <url>http://www.jclouds.org</url>
-      <timezone>-8</timezone>
-    </developer>
   </developers>
 
   <contributors>
@@ -348,6 +354,8 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <clojure.version>1.2.1</clojure.version>
+    <ritz.version>0.2.0</ritz.version>
+    <zi.version>0.4.4</zi.version>
     <clojure.contrib.version>1.2.0</clojure.contrib.version>
   </properties>
 </project>
