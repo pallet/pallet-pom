@@ -2,9 +2,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>org.sonatype.oss</groupId>
-    <artifactId>oss-parent</artifactId>
-    <version>5</version>
+    <groupId>org.cloudhoist</groupId>
+    <artifactId>parent-pom</artifactId>
+    <version>0.1.0</version>
   </parent>
   <groupId>org.cloudhoist</groupId>
   <artifactId>pallet-pom</artifactId>
@@ -15,178 +15,24 @@
   <url>http://palletops.com</url>
   <inceptionYear>2010</inceptionYear>
 
-  <licenses>
-    <license>
-      <name>Eclipse Public License</name>
-      <url>http://www.eclipse.org/legal/epl-v10.html</url>
-    </license>
-  </licenses>
-
-  <mailingLists>
-    <mailingList>
-      <name>pallet-clj</name>
-      <subscribe>http://groups.google.com/group/pallet-clj</subscribe>
-      <unsubscribe>http://groups.google.com/group/pallet-clj</unsubscribe>
-      <post>pallet-clj@googlegroups.com</post>
-      <archive>http://groups.google.com/group/pallet-clj</archive>
-    </mailingList>
-  </mailingLists>
-
   <scm>
     <connection>scm:git:git://github.com/pallet/pallet-pom.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/pallet/pallet-pom.git</developerConnection>
     <url>https://github.com/pallet/pallet-pom</url>
   </scm>
 
-  <distributionManagement>
-    <repository>
-      <id>sonatype-nexus-staging</id>
-      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
-      <uniqueVersion>false</uniqueVersion>
-    </repository>
-    <snapshotRepository>
-      <id>${snapshotRepository.id}</id>
-      <url>${snapshotRepository.url}</url>
-    </snapshotRepository>
-  </distributionManagement>
-
   <build>
-    <sourceDirectory>src</sourceDirectory>
-    <testSourceDirectory>test</testSourceDirectory>
-    <plugins>
-      <plugin>
-        <artifactId>maven-enforcer-plugin</artifactId>
-        <executions>
-          <execution>
-            <id>enforce-banned-dependencies</id>
-            <goals>
-              <goal>enforce</goal>
-            </goals>
-            <configuration>
-              <rules>
-                <bannedDependencies>
-                  <excludes>
-                    <exclude>:maven-dependency-plugin</exclude>
-                  </excludes>
-                </bannedDependencies>
-              </rules>
-            </configuration>
-          </execution>
-          <execution>
-            <id>enforce-java</id>
-            <goals>
-              <goal>enforce</goal>
-            </goals>
-            <configuration>
-              <rules>
-                <requireJavaVersion>
-                  <version>[1.6,)</version>
-                </requireJavaVersion>
-                <requireMavenVersion>
-                  <version>[2.2.1,)</version>
-                </requireMavenVersion>
-              </rules>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
-        <artifactId>maven-release-plugin</artifactId>
-        <version>2.2.1</version>
-        <configuration>
-          <pushChanges>false</pushChanges>
-          <localCheckout>true</localCheckout>
-        </configuration>
-      </plugin>
-      <plugin>
-        <artifactId>maven-install-plugin</artifactId>
-        <version>2.3.1</version>
-        <configuration>
-          <updateReleaseInfo>true</updateReleaseInfo>
-        </configuration>
-      </plugin>
-    </plugins>
     <pluginManagement>
       <plugins>
-        <plugin>
-          <groupId>org.cloudhoist.plugin</groupId>
-          <artifactId>zi</artifactId>
-          <version>${zi.version}</version>
-          <executions>
-            <execution>
-              <id>default-resources</id>
-              <phase>process-resources</phase>
-              <goals>
-                <goal>resources</goal>
-              </goals>
-            </execution>
-            <execution>
-              <id>default-test-resources</id>
-              <phase>process-test-resources</phase>
-              <goals>
-                <goal>testResources</goal>
-              </goals>
-            </execution>
-            <execution>
-              <id>default-test</id>
-              <phase>test</phase>
-              <goals>
-                <goal>test</goal>
-              </goals>
-            </execution>
-            <execution>
-              <id>default-site</id>
-              <phase>site</phase>
-              <goals>
-                <goal>marginalia</goal>
-              </goals>
-              <configuration>
-                <copyright>Copyright (c) 2010 Hugo Duncan</copyright>
-                <webSrcDir>https://github.com/pallet/pallet/blob/</webSrcDir>
-                <webHome>https://pallet.github.com/pallet/autodoc</webHome>
-              </configuration>
-            </execution>
-          </executions>
-          <dependencies>
-            <dependency>
-              <groupId>org.clojure</groupId>
-              <artifactId>clojure</artifactId>
-              <version>${clojure.version}</version>
-            </dependency>
-            <dependency>
-              <groupId>ritz</groupId>
-              <artifactId>ritz</artifactId>
-              <version>${ritz.version}</version>
-            </dependency>
-          </dependencies>
-        </plugin>
         <plugin>
           <artifactId>maven-jar-plugin</artifactId>
           <version>2.3.1</version>
         </plugin>
         <plugin>
-	  <!-- disable the Surefire testing plugin -->
-	  <artifactId>maven-surefire-plugin</artifactId>
-	  <version>2.6</version>
-	  <configuration>
-	    <skip>true</skip>
-	  </configuration>
-        </plugin>
-        <!-- disable pushing of changes on release -->
-        <plugin>
-          <artifactId>maven-release-plugin</artifactId>
-          <version>2.2.1</version>
+          <artifactId>maven-site-plugin</artifactId>
+          <version>3.0</version>
           <configuration>
-            <pushChanges>false</pushChanges>
-            <localCheckout>true</localCheckout>
-          </configuration>
-        </plugin>
-        <!-- enable snapshots from source to mix with remote snapshots -->
-        <plugin>
-          <artifactId>maven-install-plugin</artifactId>
-          <version>2.3.1</version>
-          <configuration>
-            <updateReleaseInfo>true</updateReleaseInfo>
+            <skip>true</skip>
           </configuration>
         </plugin>
       </plugins>
@@ -211,11 +57,6 @@
         <version>0.10.0</version>
       </dependency>
       <dependency>
-        <groupId>log4j</groupId>
-        <artifactId>log4j</artifactId>
-        <version>1.2.14</version>
-      </dependency>
-      <dependency>
         <groupId>org.slf4j</groupId>
         <artifactId>slf4j-api</artifactId>
         <version>1.6.1</version>
@@ -230,22 +71,6 @@
         <artifactId>logback-classic</artifactId>
         <version>1.0.0</version>
       </dependency>
-      <dependency>
-        <groupId>autodoc</groupId>
-        <artifactId>autodoc</artifactId>
-        <version>0.7.1</version>
-        <exclusions>
-          <exclusion>
-            <groupId>org.clojure</groupId>
-            <artifactId>clojure</artifactId>
-          </exclusion>
-        </exclusions>
-      </dependency>
-      <dependency>
-        <groupId>marginalia</groupId>
-        <artifactId>marginalia</artifactId>
-        <version>0.6.1</version>
-      </dependency>
     </dependencies>
   </dependencyManagement>
 
@@ -258,117 +83,5 @@
       <name>Sonatype Nexus Releases</name>
       <url>http://oss.sonatype.org/content/repositories/releases</url>
     </repository>
-    <repository>
-      <id>clojars</id>
-      <url>http://clojars.org/repo</url>
-    </repository>
   </repositories>
-
-  <pluginRepositories>
-    <pluginRepository>
-      <releases>
-        <updatePolicy>never</updatePolicy>
-      </releases>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-      <id>Maven central</id>
-      <url>http://repo1.maven.org/maven2/</url>
-    </pluginRepository>
-    <pluginRepository>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-      <releases>
-        <updatePolicy>never</updatePolicy>
-      </releases>
-      <id>sonatype-releases</id>
-      <url>http://oss.sonatype.org/content/repositories/releases</url>
-    </pluginRepository>
-  </pluginRepositories>
-
-  <profiles>
-    <profile>
-      <id>sonatype-release-profile-extension</id>
-      <activation>
-        <property>
-          <name>performRelease</name>
-          <value>true</value>
-        </property>
-      </activation>
-      <build>
-        <plugins>
-          <plugin>
-            <artifactId>maven-gpg-plugin</artifactId>
-            <configuration>
-              <keyName>${gpg.keyname}</keyName>
-              <passphrase>${gpg.passphrase}</passphrase>
-            </configuration>
-            <executions>
-              <execution>
-                <id>sign-artifacts</id>
-                <phase>verify</phase>
-                <goals>
-                  <goal>sign</goal>
-                </goals>
-              </execution>
-            </executions>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-
-    <profile>
-      <id>sonatype-repo-deploy</id>
-      <activation>
-        <activeByDefault>true</activeByDefault>
-      </activation>
-      <properties>
-        <snapshotRepository.url>https://oss.sonatype.org/content/repositories/snapshots</snapshotRepository.url>
-        <snapshotRepository.id>sonatype-nexus-snapshots</snapshotRepository.id>
-      </properties>
-    </profile>
-  </profiles>
-
-  <developers>
-    <developer>
-      <name>Hugo Duncan</name>
-      <id>hugoduncan</id>
-      <email>hugo -at- hugoduncan -dot- org</email>
-      <roles>
-        <role>PMC</role>
-        <role>Developer</role>
-      </roles>
-      <timezone>-5</timezone>
-    </developer>
-    <developer>
-      <name>Adrian Cole</name>
-      <id>ferncam1</id>
-      <email>adrian -at- jclouds -dot- org</email>
-      <organization>jclouds</organization>
-      <roles>
-        <role>Developer</role>
-      </roles>
-      <url>http://www.jclouds.org</url>
-      <timezone>-8</timezone>
-    </developer>
-  </developers>
-
-  <contributors>
-    <contributor>
-      <name>Chas Emerick</name>
-      <email>cemerick -at- snowtide -dot- com</email>
-      <organization>Snowtide Informatics</organization>
-      <organizationUrl>http://snowtide.com</organizationUrl>
-      <timezone>-5</timezone>
-      <url>http://cemerick.com</url>
-    </contributor>
-  </contributors>
-
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <clojure.version>1.2.1</clojure.version>
-    <ritz.version>0.2.0</ritz.version>
-    <zi.version>0.4.4</zi.version>
-  </properties>
 </project>
