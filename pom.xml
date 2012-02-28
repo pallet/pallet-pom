@@ -4,7 +4,7 @@
   <parent>
     <groupId>org.cloudhoist</groupId>
     <artifactId>parent-pom</artifactId>
-    <version>0.1.0</version>
+    <version>0.1.1-SNAPSHOT</version>
   </parent>
   <groupId>org.cloudhoist</groupId>
   <artifactId>pallet-pom</artifactId>
@@ -42,7 +42,7 @@
   <dependencyManagement>
     <dependencies>
       <dependency>
-        <groupId>org.clojure</groupId>
+        <groupId>${clojure.groupId}</groupId>
         <artifactId>clojure</artifactId>
         <version>${clojure.version}</version>
       </dependency>
