@@ -4,11 +4,11 @@
   <parent>
     <groupId>org.cloudhoist</groupId>
     <artifactId>parent-pom</artifactId>
-    <version>0.1.0</version>
+    <version>0.1.1</version>
   </parent>
   <groupId>org.cloudhoist</groupId>
   <artifactId>pallet-pom</artifactId>
-  <version>0.7.2-SNAPSHOT</version>
+  <version>0.7.3-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>pallet-pom</name>
   <description>Pallet - parent pom</description>
@@ -42,7 +42,7 @@
   <dependencyManagement>
     <dependencies>
       <dependency>
-        <groupId>org.clojure</groupId>
+        <groupId>${clojure.groupId}</groupId>
         <artifactId>clojure</artifactId>
         <version>${clojure.version}</version>
       </dependency>
@@ -54,7 +54,7 @@
       <dependency>
         <groupId>slingshot</groupId>
         <artifactId>slingshot</artifactId>
-        <version>0.10.0</version>
+        <version>0.10.2</version>
       </dependency>
       <dependency>
         <groupId>org.slf4j</groupId>
